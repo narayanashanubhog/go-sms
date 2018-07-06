@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- Template by quackit.com -->
+<html>
+	<head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<style type="text/css">
+		
+		body {
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			height: 100%; 
+			max-height: 100%; 
+			font-family:Sans-serif;
+			line-height: 1.5em;
+		}
+
+		main {
+			position: fixed;
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			left: 200px; 
+			right: 200px;
+			overflow: auto; 
+			background: #fff;
+
+		}
+				
+		#header {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 50px; 
+			overflow: hidden; 
+			background: #BCCE98;
+            text-align: center;
+		}
+
+		#footer {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
+			height: 50px; 
+			overflow: hidden; 
+			background: #BCCE98;
+		}
+				
+		#left {
+			position: absolute; 
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			left: 0; 
+			width: 49%;
+			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #F7FDEB; 			
+		}
+
+		#right {
+			position: absolute; 
+			top: 50px; /* Set this to the height of the header */
+			bottom: 50px; /* Set this to the height of the footer */
+			right: 0; 
+			width: 49%;
+			overflow: auto; /* Scrollbars will appear on this frame only when there's enough content to require scrolling. To disable scrollbars, change to "hidden", or use "scroll" to enable permanent scrollbars */
+			background: #F7FDEB; 		
+		}
+				
+		.innertube {
+			margin: 15px; /* Provides padding for the content */
+		}
+		
+		p {
+			color: #555;
+		}
+
+		nav ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		
+		nav ul a {
+			color: darkgreen;
+			text-decoration: none;
+		}
+				
+		/*IE6 fix*/
+		* html body{
+			padding: 50px 200px 50px 200px; /* Set the first value to the height of the header, the second value to the width of the right column, third value to the height of the footer, and last value to the width of the left column */
+		}
+		
+		* html main{ 
+			height: 100%; 
+			width: 100%; 
+		}
+
+        </style>
+        <script type='text/javascript' src='https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
+        <title>{{.PageTitle}}</title>
+			
+	</head>
+	
+	<body>		
+
+		<header id="header">
+			<div class="innertube">
+				<p style="align-items: center">SMS Meeting Invite</p>
+			</div>
+		</header>
+				
+		<main>
+			<div class="innertube">
+				
+				
+				<p> {{with $2:=.Answer}}
+                    <p> {{$2}}</p>
+                  {{end}}</script></p>
+				
+			</div>
+		</main>
+
+		<nav id="left">
+			<div class="innertube">
+				<h3>Instant Meeting Invite</h3>
+			
+                {{with $2:=.PageCheckbox}}
+                <p> Select the members for Meeting invite</p>
+              
+                  <form action="/submited" method="post">
+                      {{range $2}}
+                      <input type="checkbox" name="{{.Name}}"  value="{{.Value}}">{{.Text}}<br>
+                      {{end}}
+                      <input type="text" name="message" />  <br /> <br />   
+                    <input type="submit" class="button button-primary" name="submit" value="Send SMS" />
+                  </form>
+                  {{end}}
+
+			</div>
+		</nav>	
+		<nav id="right">
+			<div class="innertube">
+                <h3>Google Calendar Meeting </h3>
+                <br />
+                <br />
+                <form action="/Calsubmit" method="post">
+                    <p>Please select the members to send</p>
+                {{with $2:=.PageCheckbox}}
+                
+                      {{range $2}}
+                      <input type="checkbox" name="{{.Name}}" checked={{.Ischecked}} value="{{.Value}}">{{.Text}}<br>
+                      {{end}}
+                  {{end}}
+
+                {{with $2:=.PageCalCheckbox}}
+               <br />
+               <br /> 
+                <p> Select the members for Meeting invite</p>
+                      {{range $2}}
+                      <input type="checkbox" name="{{.Name}}" value="{{.Value}}">{{.Text}}<br>
+                      {{end}}
+                      
+                    <input type="submit" class="button button-primary" name="submit" value="Send SMS" />
+                  
+                  {{end}}
+                </form>
+			</div>
+		</nav>
+		
+		<footer id="footer">
+			<div class="innertube">
+				<p>@Copyright 2018</p>
+			</div>
+		</footer>	
+			
+	</body>
+</html>

@@ -1,0 +1,60 @@
+hash: 54bb7cce30fd64406a6567958acfdbd5f09d5c07d6805fb2cdb3c505e82fbf2f
+updated: 2018-07-05T13:17:18.559437+05:30
+imports:
+- name: cloud.google.com/go
+  version: c23afc06f11560eb1e93425b849aee2581c6dcfa
+  subpackages:
+  - compute/metadata
+- name: github.com/golang/protobuf
+  version: 9eb2c01ac278a5d89ce4b2be68fe4500955d8179
+  subpackages:
+  - proto
+- name: github.com/google/go-querystring
+  version: 53e6ce116135b80d037921a7fdd5138cf32d7a8a
+  subpackages:
+  - query
+- name: github.com/plivo/plivo-go
+  version: b2773bd7ab3fd3299cdea74a7baa615bec59f1bc
+- name: github.com/sirupsen/logrus
+  version: e54a77765aca7bbdd8e56c1c54f60579968b2dc9
+- name: golang.org/x/crypto
+  version: a49355c7e3f8fe157a85be2f77e6e269a0f89602
+  subpackages:
+  - ssh/terminal
+- name: golang.org/x/net
+  version: ed29d75add3d7c4bf7ca65aac0c6df3d1420216f
+  subpackages:
+  - context
+  - context/ctxhttp
+- name: golang.org/x/oauth2
+  version: ef147856a6ddbb60760db74283d2424e98c87bff
+  subpackages:
+  - google
+  - internal
+  - jws
+  - jwt
+- name: golang.org/x/sys
+  version: 151529c776cdc58ddbe7963ba9af779f3577b419
+  subpackages:
+  - unix
+  - windows
+- name: google.golang.org/api
+  version: e0f3bfad25321f7b0777b3ab35a0503dcb221744
+  subpackages:
+  - calendar/v3
+  - gensupport
+  - googleapi
+  - googleapi/internal/uritemplates
+- name: google.golang.org/appengine
+  version: b1f26356af11148e710935ed1ac8a7f5702c7612
+  subpackages:
+  - internal
+  - internal/app_identity
+  - internal/base
+  - internal/datastore
+  - internal/log
+  - internal/modules
+  - internal/remote_api
+  - internal/urlfetch
+  - urlfetch
+testImports: []
