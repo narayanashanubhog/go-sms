@@ -49,6 +49,7 @@ func main() {
   http.HandleFunc("/", DisplayMeetingMember)
   http.HandleFunc("/submited", UserSelected)
   http.HandleFunc("/Calsubmit",CalendarSelected)
+  http.HandleFunc("/response",SmsResponse)
   log.Fatal(http.ListenAndServe(getPort(), nil))
 }
 func getPort() string {
@@ -59,7 +60,22 @@ func getPort() string {
 	return ":9999"
 }
 
-
+func SmsResponse (w http.ResponseWriter, r *http.Request){
+  log.Print("plivo sms callback method: ") 
+  result :="Test"
+  MyPageVariables := PageVariables{
+    PageTitle: "Plivo SMS response",
+    Answer : result,
+    }
+    t, err := template.ParseFiles("home.html")
+    if err != nil { 
+      log.Print("template parsing error: ", err) 
+    }
+    err = t.Execute(w, MyPageVariables) 
+    if err != nil { 
+      log.Print("template executing error: ", err) 
+  }
+}
 
 func DisplayMeetingMember(w http.ResponseWriter, r *http.Request){
    Title := "Meeting invite"
